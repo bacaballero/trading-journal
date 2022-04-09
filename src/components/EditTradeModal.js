@@ -3,18 +3,15 @@ import { useRef } from "react"
 import { useTrades } from "../contexts/TradesContext"
 
 export default function EditTradeModal({ id, show, handleClose }) {
-  const { editTrade, trades, getTrade } = useTrades()
+  const { editTrade, getTrade } = useTrades()
   
   const tradeToUpdate = getTrade(id)
 
-  const outcomeRef = useRef()
   const dateRef = useRef()
   const symbolRef = useRef()
   const entryRef = useRef()
   const exitRef = useRef()
   const qtyRef = useRef()
-  const returnDollarsRef = useRef()
-  const returnPercentRef = useRef()
   const sideRef = useRef()
   const setupRef = useRef()
   const notesRef = useRef()
@@ -55,7 +52,7 @@ export default function EditTradeModal({ id, show, handleClose }) {
   }
   
   return (
-    <Modal show={id != null} onHide={handleClose}>
+    <Modal show={show} onHide={handleClose}>
       <Form onSubmit={handleSubmit}>
         <Modal.Header closeButton>
           <Modal.Title>Update Trade</Modal.Title>

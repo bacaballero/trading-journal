@@ -3,14 +3,11 @@ import { useRef } from "react"
 import { useTrades } from "../contexts/TradesContext"
 
 export default function AddTradeModal({ show, handleClose }) {
-  const outcomeRef = useRef()
   const dateRef = useRef()
   const symbolRef = useRef()
   const entryRef = useRef()
   const exitRef = useRef()
   const qtyRef = useRef()
-  const returnDollarsRef = useRef()
-  const returnPercentRef = useRef()
   const sideRef = useRef()
   const setupRef = useRef()
   const notesRef = useRef()
