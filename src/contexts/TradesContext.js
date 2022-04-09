@@ -16,8 +16,8 @@ export const TradesProvider = ({ children }) => {
       return [...trades, { id: uuidV4(), outcome, date, symbol, entry, exit, qty, returnDollars, returnPercent, side, setup, notes }]
     })
   }
-  function getTrade(tradeId) {
-    return trades.filter(trade => trade.tradeId === tradeId)
+  function getTrade(id) {
+    return trades.find(trade => trade.id === id)
   }
 
   function deleteTrade({ id }) {
@@ -26,9 +26,9 @@ export const TradesProvider = ({ children }) => {
     })
   }
 
-  function editTrade({ tradeId, trades }) {
+  function editTrade(id) {
     setTrades(changedTrade => {
-      return trades.map(trade => trade.tradeId !== tradeId ? trade : changedTrade)
+      return trades.map(trade => trade.id !== id ? trade : changedTrade)
     })
   }
 

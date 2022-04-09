@@ -7,6 +7,20 @@ import EditTradeModal from "./EditTradeModal"
 export default function TradeTable({ trades }) {
   const { deleteTrade } = useTrades()
   const [showEditTradeModal, setShowEditTradeModal] = useState(false)
+  const [viewEditTradeModalTradeId, setViewEditTradeModalTradeId] = useState()
+  console.log(trades)
+  
+  function openEditModal(id) {
+    setViewEditTradeModalTradeId(id)
+    setShowEditTradeModal(true)
+  }
+
+  function closeEditModal() {
+    setViewEditTradeModalTradeId()
+    setShowEditTradeModal(false)
+  }
+
+  console.log(viewEditTradeModalTradeId)
   return (
     <>
     <Table bordered hover variant="dark">
@@ -30,7 +44,7 @@ export default function TradeTable({ trades }) {
         {trades.map(trade =>
           <tr key={trade.id}>
             <td>
-              <Button variant="outline-primary" className="d-flex mb-2" onClick={() => setShowEditTradeModal(true)}>
+              <Button variant="outline-primary" className="d-flex mb-2" onClick={() => openEditModal(trade.id)}>
                 <PencilSquare />
               </Button>
               <Button variant="outline-danger" className="d-flex" onClick={() => deleteTrade(trade)} >
@@ -51,7 +65,7 @@ export default function TradeTable({ trades }) {
           </tr>)}
       </tbody>
     </Table>
-    <EditTradeModal show={showEditTradeModal} handleClose={() => setShowEditTradeModal(false)}/>
+    <EditTradeModal id={viewEditTradeModalTradeId} show={showEditTradeModal} handleClose={closeEditModal}/>
     </>
   )
 }
