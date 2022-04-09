@@ -26,9 +26,10 @@ export const TradesProvider = ({ children }) => {
     })
   }
 
-  function editTrade(id) {
-    setTrades(changedTrade => {
-      return trades.map(trade => trade.id !== id ? trade : changedTrade)
+  function editTrade(id, trade) {
+    trade.id = id
+    setTrades(prevTrades => {
+      return prevTrades.map(prevTrade => prevTrade.id === id ? trade : prevTrade)
     })
   }
 

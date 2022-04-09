@@ -8,7 +8,6 @@ export default function TradeTable({ trades }) {
   const { deleteTrade } = useTrades()
   const [showEditTradeModal, setShowEditTradeModal] = useState(false)
   const [viewEditTradeModalTradeId, setViewEditTradeModalTradeId] = useState()
-  console.log(trades)
   
   function openEditModal(id) {
     setViewEditTradeModalTradeId(id)
@@ -20,7 +19,6 @@ export default function TradeTable({ trades }) {
     setShowEditTradeModal(false)
   }
 
-  console.log(viewEditTradeModalTradeId)
   return (
     <>
     <Table bordered hover variant="dark">
