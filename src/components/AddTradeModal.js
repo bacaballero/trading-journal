@@ -36,7 +36,7 @@ export default function AddTradeModal({ show, handleClose }) {
     {
       outcome: getOutcome(entryRef.current.value, exitRef.current.value, sideRef.current.value),
       date: dateRef.current.value,
-      symbol: symbolRef.current.value,
+      symbol: symbolRef.current.value.toUpperCase(),
       entry: parseFloat(entryRef.current.value),
       exit: parseFloat(exitRef.current.value),
       qty: parseInt(qtyRef.current.value),
