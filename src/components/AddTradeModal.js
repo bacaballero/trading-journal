@@ -1,6 +1,7 @@
 import { Modal, Form, Button, Row, Col } from "react-bootstrap"
 import { useRef } from "react"
 import { useTrades } from "../contexts/TradesContext"
+import { currencyFormatter } from "../utils"
 
 export default function AddTradeModal({ show, handleClose }) {
   const dateRef = useRef()
@@ -40,8 +41,8 @@ export default function AddTradeModal({ show, handleClose }) {
       entry: parseFloat(entryRef.current.value),
       exit: parseFloat(exitRef.current.value),
       qty: parseInt(qtyRef.current.value),
-      returnDollars: parseFloat((exitRef.current.value - entryRef.current.value) * qtyRef.current.value),
-      returnPercent: parseFloat(((exitRef.current.value / entryRef.current.value)-1) * 100).toFixed(2),
+      returnDollars: currencyFormatter.format(parseFloat(((exitRef.current.value - entryRef.current.value) * qtyRef.current.value))),
+      returnPercent: parseFloat(((exitRef.current.value / entryRef.current.value)-1) * 100).toLocaleString(undefined, { minimumFractionDigits: 2 }),
       side: sideRef.current.value,
       setup: setupRef.current.value,
       notes: notesRef.current.value

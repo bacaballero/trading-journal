@@ -55,7 +55,7 @@ export default function TradeTable({ trades }) {
             <td>{trade.entry}</td>
             <td>{trade.exit}</td>
             <td>{trade.qty}</td>
-            <td>${trade.returnDollars}</td>
+            <td>{trade.returnDollars}</td>
             <td>{trade.returnPercent}%</td>
             <td>{trade.side}</td>
             <td>{trade.setup}</td>
