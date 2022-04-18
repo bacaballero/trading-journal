@@ -8,7 +8,6 @@ A simple Trade Journal to track trades, with fields for custom setups and any no
 - JavaScript
 - React
 - HTML
-- CSS
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
